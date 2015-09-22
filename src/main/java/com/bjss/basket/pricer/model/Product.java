@@ -1,6 +1,5 @@
 package com.bjss.basket.pricer.model;
 
-import java.util.Date;
 
 /**
  * Product model Object
@@ -10,12 +9,10 @@ import java.util.Date;
  */
 public class Product {
 	
+	// Name of the product (PK)
 	private String name;
 	private Double price;
-	private Integer discount;
-	private Date discountStartDate;
-	private Date discountEndDate;
-	
+
 	/**
 	 * @param name
 	 * @param price
@@ -24,26 +21,8 @@ public class Product {
 		super();
 		this.name = name;
 		this.price = price;
-		this.discount = 0;
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * @param price
-	 * @param discount
-	 * @param discountStartDate
-	 * @param discountEndDate
-	 */
-	public Product(String name, Double price, Integer discount,
-			Date discountStartDate, Date discountEndDate) {
-		super();
-		this.name = name;
-		this.price = price;
-		this.discount = discount;
-		this.discountStartDate = discountStartDate;
-		this.discountEndDate = discountEndDate;
-	}
 
 	/**
 	 * @return the name
@@ -73,44 +52,36 @@ public class Product {
 		this.price = price;
 	}
 
-	/**
-	 * @return the discount
-	 */
-	public Integer getDiscount() {
-		return discount;
-	}
 
-	/**
-	 * @return the discountStartDate
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
-	public Date getDiscountStartDate() {
-		return discountStartDate;
-	}
-
-	/**
-	 * @return the discountEndDate
-	 */
-	public Date getDiscountEndDate() {
-		return discountEndDate;
-	}
-
-	/**
-	 * @return
-	 * @see java.lang.Integer#hashCode()
-	 */
+	@Override
 	public int hashCode() {
-		return discount.hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 
-	/**
-	 * @param obj
-	 * @return
-	 * @see java.lang.Integer#equals(java.lang.Object)
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	@Override
 	public boolean equals(Object obj) {
-		return discount.equals(obj);
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
-
-	
-	
 }

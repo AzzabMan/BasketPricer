@@ -7,8 +7,5 @@
 	   http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
-
-	<bean id="referentialDAO" class="com.bjss.basket.pricer.dao.serices.ReferentialDAO" />
-	<bean id="pricerService" class=" com.bjss.basket.pricer.business.services.PricerServiceImpl" />
-
+	<context:component-scan base-package="com.bjss.basket.pricer.*" />
 </beans>

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 import com.bjss.basket.pricer.model.Product;
-import com.bjss.basket.pricer.runner.ProductNotFoundException;
 
 public interface PricerService {
 
@@ -18,16 +17,9 @@ public interface PricerService {
 
 	/**
 	 * Compute discount on product price
-	 * @param product
+	 * @param basket
 	 * @return
 	 */
-	public BigDecimal pricePeriodicDiscountOnProduct(Product product);
-
-	/**
-	 * Compute compound offers
-	 * @param basket
-	 * @throws ProductNotFoundException 
-	 */
-	public BigDecimal priceCompoundDiscountOnBasket(int breadCount, int soupCount) throws ProductNotFoundException;
+	public BigDecimal priceDiscountForProducts(Map<Product, Integer> basket);
 
 }
